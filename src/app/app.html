@@ -1,1 +1,13 @@
-<router-outlet />
+<div class="side-nav">
+	<ul>
+		<li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+		<li><a routerLink="/lage-umgebung" routerLinkActive="active">Lage &amp; Umgebung</a></li>
+		<li><a routerLink="/preis-buchung" routerLinkActive="active">Preis- &amp; Buchungsinfos</a></li>
+		<li><a routerLink="/interessantes-bamberg" routerLinkActive="active">Interessantes in Bamberg</a></li>
+		<li><a routerLink="/kontakt" routerLinkActive="active">Kontakt</a></li>
+		<li><a routerLink="/impressum" routerLinkActive="active">Impressum/Disclaimer</a></li>
+	</ul>
+</div>
+<div class="main-content">
+	<router-outlet />
+</div>
