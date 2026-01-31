@@ -1,0 +1,127 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  standalone: true,
+  imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <header class="app-header">
+      <div class="header-content">
+        <h1 class="header-title">
+          <div><span class="title-prefix">Ferienwohnung</span>
+          <span class="title-main">Garten EDEN</span>
+          <span class="title-suffix">in Bamberg</span>
+</div>
+        </h1>
+        <p class="header-phone">Tel. 0951 53771</p>
+      </div>
+    </header>
+  `,
+  styles: `
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8%;
+      background: linear-gradient(135deg, #6b8e23 0%, #7a9d2e 100%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      padding: 24px 32px;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .header-title {
+      margin: 0 0 0 0;
+      font-family: 'Roboto', sans-serif;
+      color: #ffd700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .title-prefix {
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      margin: 0 20px;
+    }
+
+    .title-main {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .title-suffix {
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      margin: 0 0 0 20px;
+    }
+
+    .header-phone {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #fff8dc;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tablet breakpoint - 768px */
+    @media (max-width: 768px) {
+      .app-header {
+        padding: 16px 24px;
+      }
+
+      .title-prefix {
+        font-size: 1.5rem;
+      }
+
+      .title-main {
+        font-size: 2.5rem;
+      }
+
+      .title-suffix {
+        font-size: 1.5rem;
+      }
+
+      .header-phone {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Mobile breakpoint - 480px */
+    @media (max-width: 480px) {
+      .app-header {
+        padding: 12px 16px;
+      }
+
+      .title-prefix {
+        font-size: 1.1rem;
+      }
+
+      .title-main {
+        font-size: 1.8rem;
+      }
+
+      .title-suffix {
+        font-size: 1.1rem;
+      }
+
+      .header-phone {
+        font-size: 1rem;
+      }
+    }
+  `,
+})
+export class HeaderComponent {}
