@@ -81,7 +81,7 @@ import { NgOptimizedImage } from '@angular/common';
     :host {
       display: block;
       margin: 0 auto;
-      max-width: 700px;
+      max-width: 900px;
       padding: 1rem;
     }
     .center {
@@ -93,6 +93,7 @@ import { NgOptimizedImage } from '@angular/common';
       color: #222;
       margin-top: 1rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      padding: 30px;
     }
     h1 {
       color: #1976d2;

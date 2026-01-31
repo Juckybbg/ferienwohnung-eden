@@ -56,7 +56,7 @@ import { MatDividerModule } from '@angular/material/divider';
     :host {
       display: block;
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 900px;
       padding: 1rem;
     }
     mat-card {
@@ -64,6 +64,7 @@ import { MatDividerModule } from '@angular/material/divider';
       color: #222;
       margin-top: 1rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      padding: 30px;
     }
     h1,
     h2,
