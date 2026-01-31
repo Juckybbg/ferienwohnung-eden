@@ -1,15 +1,50 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  OnInit,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgOptimizedImage } from '@angular/common';
+import { register } from 'swiper/element/bundle';
+import { Swiper, SwiperOptions } from 'swiper/types';
+import { CommonModule } from '@angular/common';
+import { CardsService } from '../../cards-service';
+import { Card } from '../../models/card';
+
+register();
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatCardModule, MatDividerModule, NgOptimizedImage],
+  imports: [MatCardModule, MatDividerModule, NgOptimizedImage, CommonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section aria-labelledby="home-title">
+      <h1 id="home-title">Hier werden Sie sich wohlfühlen!</h1>
+      <swiper-container #swiper [config]="swiperConfig" class="mySwiper">
+        <swiper-slide *ngFor="let card of cards">
+          <mat-card class="image-card">
+            <img mat-card-image [ngSrc]="card.image" width="400" height="300" />
+            <p mat-card-content>{{ card.text }}</p>
+          </mat-card>
+        </swiper-slide>
+      </swiper-container>
+      <h1 class="welcome-right">Herzlich willkommen in Bamberg!</h1>
+        <p>
+          Zum Ausdrucken können Sie sich
+          <a href="/assets/Flyer_gessner_web.pdf" target="_blank" rel="noopener">hier</a> unseren
+          Flyer downloaden.
+        </p>
+    </section>
+  `,
+  /*template: `
+    <<section aria-labelledby="home-title">
       <mat-card>
         <h1 id="home-title">Hier werden Sie sich wohlfühlen!</h1>
         <!-- Terrasse Block -->
@@ -128,8 +163,8 @@ import { NgOptimizedImage } from '@angular/common';
           Flyer downloaden.
         </p>
       </mat-card>
-    </section>
-  `,
+    </section>>
+  `,*/
   styles: `
     :host {
       display: block;
@@ -196,7 +231,45 @@ import { NgOptimizedImage } from '@angular/common';
         margin: 0;
         padding: 0 1rem;
       }
+
+      .mySwiper {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      swiper-slide {
+        display: flex;
+        justify-content: center;
+      }
     }
   `,
 })
-export class Home {}
+export class Home implements AfterViewInit, OnInit {
+  @ViewChild('swiper', { static: false }) swiperRef!: ElementRef<HTMLElement>;
+
+  cards: Card[] = [];
+
+  swiperConfig: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: true,
+    pagination: { clickable: true },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 2.5 },
+    },
+    grabCursor: true, // Für besseres Swipe-Feeling
+  };
+
+  constructor(private cardsService: CardsService) {}
+
+  ngOnInit() {
+    this.cardsService.getCards().subscribe(data => {
+      this.cards = data;
+    });
+  }
+
+  ngAfterViewInit() {
+    Object.assign(this.swiperRef.nativeElement, this.swiperConfig);
+    (this.swiperRef.nativeElement as any).initialize();
+  }
+}
