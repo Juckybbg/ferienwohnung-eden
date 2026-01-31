@@ -69,10 +69,10 @@ import { MatDividerModule } from '@angular/material/divider';
     h1,
     h2,
     h3 {
-      color: #1976d2;
+      color: #6b8e23;
     }
     a {
-      color: #1976d2;
+      color: #6b8e23;
       text-decoration: underline;
     }
     ul {

@@ -191,7 +191,7 @@ register();
     }
     .welcome-right {
       text-align: right;
-      color: #1976d2;
+      color: #6b8e23;
       margin-top: 2rem;
     }
     mat-card {
@@ -203,10 +203,10 @@ register();
       overflow: hidden;
     }
     h1 {
-      color: #1976d2;
+      color: #6b8e23;
     }
     a {
-      color: #1976d2;
+      color: #6b8e23;
       text-decoration: underline;
     }
     img {

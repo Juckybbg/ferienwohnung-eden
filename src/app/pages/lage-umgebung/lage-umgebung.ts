@@ -96,10 +96,10 @@ import { NgOptimizedImage } from '@angular/common';
       padding: 30px;
     }
     h1 {
-      color: #1976d2;
+      color: #6b8e23;
     }
     a {
-      color: #1976d2;
+      color: #6b8e23;
       text-decoration: underline;
     }
   `,
