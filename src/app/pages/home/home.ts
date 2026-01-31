@@ -253,10 +253,10 @@ export class Home implements AfterViewInit, OnInit {
     spaceBetween: 20,
     navigation: true,
     pagination: { clickable: true },
-    breakpoints: {
+    /*breakpoints: {
       768: { slidesPerView: 2 },
       1024: { slidesPerView: 2.5 },
-    },
+    },*/
     grabCursor: true, // Für besseres Swipe-Feeling
   };
 
