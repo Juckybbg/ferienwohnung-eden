@@ -30,7 +30,7 @@ register();
       <swiper-container #swiper [config]="swiperConfig" class="mySwiper">
         <swiper-slide *ngFor="let card of cards">
           <mat-card class="image-card">
-            <img mat-card-image [ngSrc]="card.image" width="400" height="300" />
+            <img mat-card-image [ngSrc]="card.image" width="700" height="450" />
             <p mat-card-content>{{ card.text }}</p>
           </mat-card>
         </swiper-slide>
@@ -169,9 +169,22 @@ register();
     :host {
       display: block;
       margin: 0 auto;
-      max-width: 700px;
-      padding: 1rem;
+      max-width: 1200px;
+      padding: clamp(0.75rem, 2vw, 1rem);
     }
+
+    swiper-container.mySwiper {
+      display: block;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+
     .center {
       text-align: center;
       margin: 1.5rem 0;
@@ -202,43 +215,53 @@ register();
     .image-card {
       display: block;
       margin: 1.5rem auto;
-      max-width: 400px;
+      width: 100%;
+      max-width: 900px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-      img[mat-card-image] {
-        object-fit: contain; // Passt Bild in Rahmen ohne Verzerrung
-        object-position: center; // Zentriert das Bild
-        height: 300px; // Feste Höhe für Konsistenz
-        width: 100%;
+    .image-card img[mat-card-image] {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .image-card p[mat-card-content] {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 120px;
+      padding: 1.5rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      :host {
+        max-width: 960px;
       }
 
-      img {
-        border-radius: 8px 8px 0 0;
+      swiper-container.mySwiper {
+        max-width: 960px;
       }
 
-      mat-card-content {
-        display: flex !important; // Flexbox erzwingen
-        flex-direction: column; // Vertikale Ausrichtung
-        justify-content: center; // Horizontal zentriert
-        align-items: center; // Vertikal zentriert
-        text-align: center; // Text zentriert
-        min-height: 120px; // Mindesthöhe für Balance
-        padding: 1.5rem;
-        line-height: 1.4; // Zeilenhöhe optimieren
-      }
-
-      p {
-        margin: 0;
-        padding: 0 1rem;
-      }
-
-      .mySwiper {
+      .image-card {
         max-width: 700px;
-        margin: 0 auto;
       }
-      swiper-slide {
-        display: flex;
-        justify-content: center;
+    }
+
+    @media (max-width: 600px) {
+      .image-card {
+        margin: 1rem auto;
+      }
+
+      .image-card p[mat-card-content] {
+        min-height: 0;
+        padding: 1rem;
       }
     }
   `,
@@ -269,7 +292,25 @@ export class Home implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    Object.assign(this.swiperRef.nativeElement, this.swiperConfig);
-    (this.swiperRef.nativeElement as any).initialize();
+    const swiperEl = this.swiperRef?.nativeElement as any;
+
+    if (!swiperEl) {
+      return;
+    }
+
+    // Swiper web component can throw in unit-test/JSDOM environments.
+    // In the browser it initializes normally.
+    if (typeof window === 'undefined' || typeof customElements === 'undefined') {
+      return;
+    }
+
+    try {
+      Object.assign(swiperEl, this.swiperConfig);
+      if (typeof swiperEl.initialize === 'function') {
+        swiperEl.initialize();
+      }
+    } catch {
+      // no-op
+    }
   }
 }
