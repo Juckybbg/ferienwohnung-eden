@@ -216,7 +216,7 @@ register();
       display: block;
       margin: 1.5rem auto;
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
