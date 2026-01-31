@@ -77,7 +77,7 @@ import { NgOptimizedImage } from '@angular/common';
       text-align: center;
     }
     mat-card {
-      background: #fff;
+      background: #cfccb7;
       color: #222;
       margin-top: 1rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
