@@ -1,8 +1,9 @@
 name: Deploy Angular to Pages
 on:
-  push:
-    branches:
-      - main
+  # Deaktiviert - verwende stattdessen: npm run deploy
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 permissions:
