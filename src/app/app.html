@@ -1,14 +1,34 @@
-<app-header />
-<div class="side-nav">
-	<ul>
-		<li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-		<li><a routerLink="/lage-umgebung" routerLinkActive="active">Lage &amp; Umgebung</a></li>
-		<li><a routerLink="/preis-buchung" routerLinkActive="active">Preis- &amp; Buchungsinfos</a></li>
-		<li><a routerLink="/interessantes-bamberg" routerLinkActive="active">Interessantes in Bamberg</a></li>
-		<li><a routerLink="/kontakt" routerLinkActive="active">Kontakt</a></li>
-		<li><a routerLink="/impressum" routerLinkActive="active">Impressum/Disclaimer</a></li>
-	</ul>
-</div>
-<div class="main-content">
-	<router-outlet />
-</div>
+<app-header (menuToggle)="toggleMenu()" />
+<mat-sidenav-container>
+	<mat-sidenav #drawer [mode]="isMobile() ? 'over' : 'side'" [opened]="!isMobile()">
+		<mat-nav-list>
+			<a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+				<mat-icon matListItemIcon>home</mat-icon>
+				<span matListItemTitle>Home</span>
+			</a>
+			<a mat-list-item routerLink="/lage-umgebung" routerLinkActive="active">
+				<mat-icon matListItemIcon>place</mat-icon>
+				<span matListItemTitle>Lage &amp; Umgebung</span>
+			</a>
+			<a mat-list-item routerLink="/preis-buchung" routerLinkActive="active">
+				<mat-icon matListItemIcon>euro</mat-icon>
+				<span matListItemTitle>Preis- &amp; Buchungsinfos</span>
+			</a>
+			<a mat-list-item routerLink="/interessantes-bamberg" routerLinkActive="active">
+				<mat-icon matListItemIcon>attractions</mat-icon>
+				<span matListItemTitle>Interessantes in Bamberg</span>
+			</a>
+			<a mat-list-item routerLink="/kontakt" routerLinkActive="active">
+				<mat-icon matListItemIcon>contact_mail</mat-icon>
+				<span matListItemTitle>Kontakt</span>
+			</a>
+			<a mat-list-item routerLink="/impressum" routerLinkActive="active">
+				<mat-icon matListItemIcon>info</mat-icon>
+				<span matListItemTitle>Impressum/Disclaimer</span>
+			</a>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<router-outlet />
+	</mat-sidenav-content>
+</mat-sidenav-container>
