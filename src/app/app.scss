@@ -13,7 +13,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-	width: 280px;
+	width: 300px;
 	background: #F3E7D3;
 	border-right: 1px solid #ddd;
 	padding-top: 113px
@@ -26,13 +26,13 @@ mat-sidenav-content {
 }
 
 mat-nav-list {
-	padding: 0;
+	padding: 0 8px;
 }
 
 .mat-mdc-list-item {
 	color: #333;
 	border-radius: 4px;
-	margin: 0 8px 10px 8px;
+	margin: 0 0 10px 0;
 	transition: background 0.2s, color 0.2s;
 }
 
