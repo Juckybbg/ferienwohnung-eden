@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 1rem;
+}
+.center {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+mat-card {
+  background: #cfccb7;
+  color: #222;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 30px;
+}
+h1 {
+  color: #6b8e23;
+}
+a {
+  color: #6b8e23;
+  text-decoration: underline;
+}
