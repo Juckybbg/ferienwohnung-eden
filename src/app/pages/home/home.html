@@ -1,0 +1,17 @@
+<section aria-labelledby="home-title">
+  <h1 id="home-title">Hier werden Sie sich wohlfühlen!</h1>
+  <swiper-container #swiper [config]="swiperConfig" class="mySwiper">
+    <swiper-slide *ngFor="let card of cards">
+      <mat-card class="image-card">
+        <img mat-card-image [ngSrc]="card.image" width="700" height="450" />
+        <p mat-card-content>{{ card.text }}</p>
+      </mat-card>
+    </swiper-slide>
+  </swiper-container>
+  <h1 class="welcome-right">Herzlich willkommen in Bamberg!</h1>
+    <p>
+      Zum Ausdrucken können Sie sich
+      <a href="/assets/Flyer_gessner_web.pdf" target="_blank" rel="noopener">hier</a> unseren
+      Flyer downloaden.
+    </p>
+</section>

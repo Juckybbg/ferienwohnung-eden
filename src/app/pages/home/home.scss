@@ -1,0 +1,105 @@
+:host {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: clamp(0.75rem, 2vw, 1rem);
+}
+
+swiper-container.mySwiper {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.welcome-right {
+  text-align: right;
+  color: #6b8e23;
+  margin-top: 2rem;
+}
+mat-card {
+  background: #fff;
+  color: #222;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0;
+  overflow: hidden;
+}
+h1 {
+  color: #6b8e23;
+}
+a {
+  color: #6b8e23;
+  text-decoration: underline;
+}
+img {
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+.image-card {
+  display: block;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.image-card img[mat-card-image] {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+}
+
+.image-card p[mat-card-content] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80px;
+  padding: 1rem;
+  line-height: 1.4;
+  margin: 0;
+  background: #cfccb7;
+}
+
+@media (max-width: 1024px) {
+  :host {
+    max-width: 960px;
+  }
+
+  swiper-container.mySwiper {
+    max-width: 960px;
+  }
+
+  .image-card {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-card {
+    margin: 1rem auto;
+  }
+
+  .image-card p[mat-card-content] {
+    min-height: 0;
+    padding: 1rem;
+  }
+}
