@@ -1,59 +1,116 @@
-# FerienwohnungEden
+# Ferienwohnung Eden
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Eine moderne Single-Page-Application für eine Ferienwohnung in Bamberg, entwickelt mit Angular 21 und Angular Material.
 
-## Development server
+## 🌐 Live Demo
 
-To start a local development server, run:
+Die Anwendung ist live unter [https://juckybbg.github.io/ferienwohnung-eden/](https://juckybbg.github.io/ferienwohnung-eden/) verfügbar.
 
-```bash
-ng serve
-```
+## 📋 Projektübersicht
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Diese Website präsentiert die Ferienwohnung Eden mit folgenden Bereichen:
 
-## Code scaffolding
+- **Home** – Bildergalerie mit Swiper-Slider und Ausstattungsübersicht
+- **Lage und Umgebung** – Informationen zur Location
+- **Preis und Buchung** – Preisdetails und Buchungsinformationen
+- **Interessantes in Bamberg** – Sehenswürdigkeiten und Tipps
+- **Kontakt** – Kontaktformular und Ansprechpartner
+- **Impressum** – Rechtliche Informationen
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Technologie-Stack
 
-```bash
-ng generate component component-name
-```
+- **Framework:** Angular 21.1
+- **UI-Library:** Angular Material 21.1
+- **Styling:** SCSS
+- **Slider:** Swiper 12.1
+- **Testing:** Vitest 4.0
+- **Deployment:** GitHub Pages via angular-cli-ghpages
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Entwicklung
 
-```bash
-ng generate --help
-```
+### Voraussetzungen
 
-## Building
+- Node.js (empfohlen: aktuelle LTS-Version)
+- npm 11.6.2 oder höher
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Installation
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Development Server starten
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Die Anwendung ist dann unter `http://localhost:4200/` erreichbar. Die App lädt automatisch neu bei Änderungen.
 
-## Additional Resources
+### Lokale Preview der Production-Build
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run preview
+```
+
+Startet einen lokalen http-server mit der gebauten Anwendung auf Port 8080.
+
+## 🏗️ Build & Deployment
+
+### Production Build erstellen
+
+```bash
+npm run build
+```
+
+Die Build-Artefakte werden im `dist/ferienwohnung-eden/` Verzeichnis gespeichert.
+
+### Zu GitHub Pages deployen
+
+```bash
+npm run deploy
+```
+
+Dieser Befehl erstellt automatisch einen Production-Build und deployed ihn zum `gh-pages` Branch.
+
+## 🧪 Testing
+
+```bash
+npm test
+```
+
+Führt die Unit-Tests mit Vitest aus.
+
+## 📁 Projektstruktur
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── header/          # Header-Komponente mit Navigation
+│   ├── pages/               # Seiten-Komponenten
+│   │   ├── home/
+│   │   ├── lage-umgebung/
+│   │   ├── preis-buchung/
+│   │   ├── interessantes-bamberg/
+│   │   ├── kontakt/
+│   │   └── impressum/
+│   ├── models/              # TypeScript-Interfaces
+│   ├── cards-service.ts     # Service für Card-Daten
+│   ├── app.routes.ts        # Routing-Konfiguration
+│   └── app.ts               # Root-Komponente
+└── assets/
+    └── images/              # Bilder und Medien
+```
+
+## 🔧 Wichtige Konfigurationen
+
+- **Base Href:** `/ferienwohnung-eden/` (für GitHub Pages Subdirectory)
+- **Output Path:** `dist/ferienwohnung-eden/`
+- **Build Target:** Browser (Application Builder)
+
+## 📝 Weitere Informationen
+
+- [Angular CLI Dokumentation](https://angular.dev/tools/cli)
+- [Angular Material Dokumentation](https://material.angular.io/)
+- [Swiper Dokumentation](https://swiperjs.com/)
