@@ -2,7 +2,7 @@
   display: block;
   margin: 0 auto;
   max-width: 1200px;
-  padding: clamp(0.75rem, 2vw, 1rem);
+  padding: 0;
 }
 
 swiper-container.mySwiper {
@@ -19,23 +19,26 @@ swiper-slide {
 
 .center {
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 .welcome-right {
   text-align: right;
   color: #6b8e23;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 mat-card {
   background: #fff;
   color: #222;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   padding: 0;
   overflow: hidden;
 }
 h1 {
   color: #6b8e23;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 a {
   color: #6b8e23;
@@ -48,9 +51,9 @@ img {
 }
 .image-card {
   display: block;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 0;
   overflow: hidden;
@@ -72,8 +75,8 @@ img {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 80px;
-  padding: 1rem;
+  min-height: 60px;
+  padding: 0.75rem;
   line-height: 1.4;
   margin: 0;
   background: #cfccb7;

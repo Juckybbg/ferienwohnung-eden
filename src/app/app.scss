@@ -16,12 +16,13 @@ mat-sidenav {
 	width: 300px;
 	background: #F3E7D3;
 	border-right: 1px solid #ddd;
-	padding-top: 113px
+	padding-top:25px;
+	overflow-y: auto;
 }
 
 mat-sidenav-content {
 	background: #F3E7D3;
-	padding: 32px 24px;
+	padding: 16px 20px;
 	overflow-y: auto;
 }
 

@@ -3,7 +3,7 @@
   <swiper-container #swiper [config]="swiperConfig" class="mySwiper">
     <swiper-slide *ngFor="let card of cards">
       <mat-card class="image-card">
-        <img mat-card-image [ngSrc]="card.image" width="700" height="450" />
+        <img mat-card-image [ngSrc]="card.image" width="600" height="450" />
         <p mat-card-content>{{ card.text }}</p>
       </mat-card>
     </swiper-slide>
