@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:preview": "ng build --base-href /",
     "preview": "npm run build:preview && http-server dist/ferienwohnung-eden -p 8080 -o",
-    "deploy": "ng build && npx angular-cli-ghpages --dir=dist/ferienwohnung-eden",
+    "deploy": "ng build && npx angular-cli-ghpages --dir=dist/ferienwohnung-eden --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
