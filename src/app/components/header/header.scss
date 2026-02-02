@@ -2,7 +2,10 @@
   position: relative;
   width: 100%;
   height: clamp(80px, 8vh, 120px);
-  background: linear-gradient(135deg, #6b8e23 0%, #7a9d2e 100%);
+  background-image: linear-gradient(135deg, rgba(107, 142, 35, 0.7) 0%, rgba(122, 157, 46, 0.7) 100%), url('/assets/images/silhouette_small.png');
+  background-size: cover, cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 1001;
   padding: 24px 32px;
