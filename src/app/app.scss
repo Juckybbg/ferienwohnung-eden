@@ -39,13 +39,13 @@ mat-nav-list {
 
 .mat-mdc-list-item.active,
 .mat-mdc-list-item:hover {
-	background: #b2d7e7 !important;
-	color: #003366;
+	background: #cfccb7 !important;
+	color: #cfccb7;
 }
 
 .mat-mdc-list-item.active mat-icon,
 .mat-mdc-list-item:hover mat-icon {
-	color: #003366;
+	color: #fff;
 }
 
 mat-icon[matListItemIcon] {
