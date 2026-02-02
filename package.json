@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
+    "build:preview": "ng build --base-href /",
+    "preview": "npm run build:preview && http-server dist/ferienwohnung-eden -p 8080 -o",
+    "deploy": "ng build && npx angular-cli-ghpages --dir=dist/ferienwohnung-eden",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -42,6 +45,8 @@
     "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
     "@angular/material": "^21.1.2",
+    "angular-cli-ghpages": "^3.0.2",
+    "http-server": "^14.1.1",
     "jsdom": "^27.1.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

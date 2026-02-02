@@ -9,27 +9,36 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, HeaderComponent, MatSidenavModule, MatListModule, MatIconModule, MatButtonModule],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    HeaderComponent,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('ferienwohnung-eden');
   protected readonly isMobile = signal(false);
-  
+
   @ViewChild('drawer') drawer!: MatDrawer;
-  
+
   private breakpointObserver = inject(BreakpointObserver);
-  
+
   constructor() {
-    this.breakpointObserver.observe(['(max-width: 500px)']).subscribe(result => {
+    this.breakpointObserver.observe(['(max-width: 500px)']).subscribe((result) => {
       this.isMobile.set(result.matches);
       if (!result.matches && this.drawer) {
         this.drawer.open();
       }
     });
   }
-  
+
   toggleMenu() {
     this.drawer.toggle();
   }

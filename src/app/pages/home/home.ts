@@ -47,7 +47,7 @@ export class Home implements AfterViewInit, OnInit {
   constructor(private cardsService: CardsService) {}
 
   ngOnInit() {
-    this.cardsService.getCards().subscribe(data => {
+    this.cardsService.getCards().subscribe((data) => {
       this.cards = data;
     });
   }

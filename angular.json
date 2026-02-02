@@ -20,6 +20,11 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": {
+            "base": "dist/ferienwohnung-eden",
+            "browser": ""
+            },
+          "baseHref": "/ferienwohnung-eden/",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
