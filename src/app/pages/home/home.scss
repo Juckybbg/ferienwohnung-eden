@@ -10,6 +10,8 @@ swiper-container.mySwiper {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 40px;
+  --swiper-pagination-bottom: 10px;
 }
 
 swiper-slide {
@@ -51,7 +53,7 @@ img {
 }
 .image-card {
   display: block;
-  margin: 1rem auto;
+  margin: 1rem auto 40px auto;
   width: 100%;
   max-width: 600px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
