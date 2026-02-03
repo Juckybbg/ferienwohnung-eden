@@ -10,14 +10,17 @@ mat-sidenav-container {
 	flex: 1;
 	overflow: hidden;
 	background: #F3E7D3;
+	margin-top: clamp(80px, 8vh, 120px);
+	height: calc(100vh - clamp(80px, 8vh, 120px));
 }
 
 mat-sidenav {
 	width: 300px;
 	background: #F3E7D3;
 	border-right: 1px solid #ddd;
-	padding-top:25px;
+	padding-top:80px;
 	overflow-y: auto;
+	z-index: 1050;
 }
 
 mat-sidenav-content {
