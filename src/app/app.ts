@@ -1,5 +1,5 @@
 import { Component, signal, ViewChild, inject } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
 import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -29,12 +29,20 @@ export class App {
   @ViewChild('drawer') drawer!: MatDrawer;
 
   private breakpointObserver = inject(BreakpointObserver);
+  private router = inject(Router);
 
   constructor() {
     this.breakpointObserver.observe(['(max-width: 500px)']).subscribe((result) => {
       this.isMobile.set(result.matches);
       if (!result.matches && this.drawer) {
         this.drawer.open();
+      }
+    });
+
+    // Drawer automatisch nach Navigation auf mobilen Geräten schließen
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd && this.isMobile() && this.drawer) {
+        this.drawer.close();
       }
     });
   }
